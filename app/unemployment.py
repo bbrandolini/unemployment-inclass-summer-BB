@@ -27,13 +27,11 @@ def format_pct(my_number):
     return f"{my_number:.2f}%"
 
 
-
-if __name__ == "__main__":
-
-    # only run the code below if we run this file from the command line
-    # otherwise if we are just importing some functions from this file
-    # don't run this code
-
+def fetch_unemployment_data():
+    """Fetches unemployment data from the AlphaVantage API.
+        Returns data as a list of dictionaries, where each represents the unemployment rate for a given month.
+        Formats rates as floats.
+    """
 
     request_url = f"https://www.alphavantage.co/query?function=UNEMPLOYMENT&apikey={API_KEY}"
 
@@ -43,8 +41,24 @@ if __name__ == "__main__":
     print(type(parsed_response))
     pprint(parsed_response)
 
-
     data = parsed_response["data"]
+
+    # we could return the raw data, but the values are strings,
+    # so let's convert them to floats (more usable) before returning
+    for d in data:
+        d["value"] = float(d["value"]) # this is mutating and will overwrite the data
+
+    return data
+
+
+
+if __name__ == "__main__":
+
+    # only run the code below if we run this file from the command line
+    # otherwise if we are just importing some functions from this file
+    # don't run this code
+
+    data = fetch_unemployment_data()
 
 
     # Challenge A
@@ -56,7 +70,7 @@ if __name__ == "__main__":
     print("LATEST UNEMPLOYMENT RATE:")
     #print(data[0])
     #print(f"{data[0]['value']}%", "as of", data[0]["date"])
-    print(format_pct(float(data[0]['value'])), "as of", data[0]["date"])
+    print(format_pct(data[0]['value']), "as of", data[0]["date"])
 
 
 
@@ -69,7 +83,7 @@ if __name__ == "__main__":
 
     this_year = [d for d in data if "2023-" in d["date"]]
 
-    rates_this_year = [float(d["value"]) for d in this_year]
+    rates_this_year = [d["value"] for d in this_year]
     #print(rates_this_year)
 
     print("-------------------------")
@@ -84,12 +98,10 @@ if __name__ == "__main__":
 
 
     dates = [d["date"] for d in data]
-    rates = [float(d["value"]) for d in data]
+    rates = [d["value"] for d in data]
 
     fig = line(x=dates, y=rates, title="United States Unemployment Rate over time", labels= {"x": "Month", "y": "Unemployment Rate"})
     fig.show()
-
-
 
 
 
