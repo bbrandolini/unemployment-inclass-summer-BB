@@ -1,0 +1,10 @@
+
+
+requests
+
+pandas
+
+plotly
+
+
+python-dotenv
