@@ -13,6 +13,7 @@ python-dotenv
 # <--- ADD FOR WEB APP
 flask 
 #gunicorn
+gunicorn # for hosting the render server
 
 # for testing:
 pytest
