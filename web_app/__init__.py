@@ -15,8 +15,9 @@ def create_app():
     app.register_blueprint(home_routes)
     #app.register_blueprint(book_routes)
     #app.register_blueprint(weather_routes)
-    app.register_blueprint(unemployment_routes)
-    app.register_blueprint(stocks_routes)
+    #app.register_blueprint(unemployment_routes)
+    #app.register_blueprint(stocks_routes)
+    app.register_blueprint(personality_routes)
     return app
 
 
