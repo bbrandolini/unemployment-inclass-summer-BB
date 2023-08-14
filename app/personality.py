@@ -5,11 +5,11 @@ from getpass import getpass
 from openai import ChatCompletion
 
 # Fetch the API key from an environment variable or a config file
-#OPENAI_API_KEY = getpass("Please provide your OpenAI API Key:")
-if not OPENAI_API_KEY:
-    raise ValueError("No OpenAI API key found!")
+# OPENAI_API_KEY = getpass("Please provide your OpenAI API Key:")
+#if not OPENAI_API_KEY:
+#    raise ValueError("No OpenAI API key found!")
 
-openai.api_key = OPENAI_API_KEY
+#openai.api_key = OPENAI_API_KEY
 
 VALID_MBTI_TYPES = ["ISTJ", "ISFJ", "INFJ", "INTJ", "ISTP", "ISFP", "INFP", "INTP",
                    "ESTP", "ESFP", "ENFP", "ENTP", "ESTJ", "ESFJ", "ENFJ", "ENTJ"]
