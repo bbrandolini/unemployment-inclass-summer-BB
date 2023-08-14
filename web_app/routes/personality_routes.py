@@ -1,6 +1,7 @@
 # this is the "web_app/routes/personality_routes.py" file ...
 from flask import Blueprint, request, render_template, redirect, flash
 from app.personality import get_activities
+
 personality_routes = Blueprint("personality_routes", __name__)
 @personality_routes.route("/personality/form")
 def personality_form():

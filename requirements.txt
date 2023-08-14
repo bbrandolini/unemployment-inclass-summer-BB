@@ -15,5 +15,8 @@ flask
 #gunicorn
 gunicorn # for hosting the render server
 
+# <---- Add for OpenAI API
+openai
+
 # for testing:
 pytest

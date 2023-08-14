@@ -3,13 +3,18 @@
 
 
 ## Setup
+ 
+Obtain an [OpenAI API Key](https://platform.openai.com/account/api-keys). A normal # key should be fine, but alternatively you can use one of the prof's "premium" keys. Then # create a file called ".env" and place it inside (like the following example):
 
-Obtain an [AlphaVantage API Key](https://www.alphavantage.co/support/#api-key). A normal key should be fine, but alternatively you can use one of the prof's "premium" keys. Then create a file called ".env" and place it inside (like the following example):
+# Obtain an [AlphaVantage API Key](https://www.alphavantage.co/support/#api-key). A normal # key should be fine, but alternatively you can use one of the prof's "premium" keys. Then # create a file called ".env" and place it inside (like the following example):
 
 ```sh
 # this is the ".env" file (in the root directory of the repo)
 
-ALPHAVANTAGE_API_KEY="____________"
+# ALPHAVANTAGE_API_KEY="____________"
+
+OPENAI_API_KEY = "__________"
+
 ```
 
 Create a virtual environment:
@@ -42,6 +47,12 @@ Run the stocks report:
 
 ```sh
 python -m app.stocks
+```
+
+Run the personality Report:
+
+```sh
+python -m app.personality
 ```
 
 Run the web app:
