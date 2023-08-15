@@ -17,6 +17,8 @@ def personality_dashboard():
     try:
         results = get_activities(type1,type2)
         #flash("Fetched Real-time Market Data!", "success")
+        print(type(results))
+        results = results.split("\n")
         return render_template("personality_dashboard.html", results=results)
     except Exception as err:
         print('OOPS', err)

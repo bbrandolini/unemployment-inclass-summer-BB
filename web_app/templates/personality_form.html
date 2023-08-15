@@ -1,16 +1,18 @@
-# can choose between dropdown or input
-# send this input to personality_dashboard
+<!--# can choose between dropdown or input
+# send this input to personality_dashboard -->
+
 {% extends "bootstrap_5_layout.html" %}
 {% set active_page = "personality_form" %}
 {% block content %}
     <h2>Personality Form</h2>
-    <p>Request some personality data...</p>
+    <p>Submit some personality data...</p>
+    <p>If unknown please visit <a href="https://www.16personalities.com/free-personality-test" target="_blank">Free Personality Test</a> </p>
     <form action="/personality/dashboard" method="POST">
         <label>Your Personality Type:</label>
         <input type="text" name="type1" placeholder="ENTJ" >
         <br>
 	<label>Partner's Personality Type:</label>
-        <input type="text" name="type2" placeholder="ENTJ" >
+        <input type="text" name="type2" placeholder="INFP" >
         <br>
         <!-- <label>Risk Tolerance:</label>
         <select name="risk_level">

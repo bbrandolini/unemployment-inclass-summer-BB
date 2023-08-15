@@ -1,0 +1,22 @@
+{% extends "bootstrap_5_layout.html" %}
+{% set active_page = "personality_dashboard" %}
+{% block content %}
+    <h2>Personality Dashboard</h2>
+    <p>Pick wisely!</p>
+    <div>
+        <strong>Your Personality Type:</strong> {{ request.form['type1'] }}
+    </div>
+    <br>
+    <div>
+        <strong>Partner's Personality Type:</strong> {{ request.form['type2'] }}
+    </div>
+    <br>
+    <br>
+    <div>
+        <strong>Here are some suggested couple's activities:</strong> {{ request.form['risk_level'] }}
+    </div>
+    <!-- Add code here to display appropriate results based on the submitted data -->
+    {% for result in results %}
+    <p>{{result}}</p>
+    {% endfor %}
+{% endblock %}
